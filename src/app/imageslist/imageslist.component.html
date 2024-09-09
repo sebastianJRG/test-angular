@@ -1,0 +1,4 @@
+<h2>Estas son las imagenes de : {{username}}</h2>
+@for (image of images; track image.id) {
+    <img (click)="favImage(image.url)" src={{image.url}} alt={{image.alt}}>
+}

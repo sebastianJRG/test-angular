@@ -1,0 +1,23 @@
+<section>
+    @if (isLoggedIn) {
+        <p>Bienvenido: {{ username }}</p>
+        <img 
+            src="{{profile}}" 
+            alt="{{ username }}"
+            (click)="great()"
+        >
+        <button (click)="desloggin()">Adios</button>
+        <hr>
+        <app-imageslist
+            (addFavoriteEvent)="getFavorite($event)"
+            username="{{username}}" />
+        <hr>
+        @if (favImage !== "") {
+            <p>La imagen favorita de {{username}} es:</p>
+            <img src="{{favImage}}" alt="imagen favorito">
+        }
+    } @else {
+        <p>Iniciar sesion!</p>
+        <button (click)="loggin()">Iniciar sesion button</button>
+    }
+</section>
